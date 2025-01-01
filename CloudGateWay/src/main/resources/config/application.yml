@@ -20,5 +20,26 @@ spring:
                 - AddResponseHeader=X-Gateway-Identifier, gateway-only # Adds a header
   application:
     name: CloudGateWay
+
 server:
   port: 2000
+
+management:
+   endpoints:
+      web:
+        exposure:
+          include: health, info
+   endpoint:
+      info:  
+         enabled: true
+
+info:
+   app: 
+     name: My Spring Boot Application
+     description: An example Spring Boot application
+     version: 1.0.0
+
+logging:
+   level:
+     org.springframework.boot.actuate: DEBUG
+
